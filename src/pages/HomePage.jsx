@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageLayout from '@/components/layout/PageLayout'
-import HeroSearch from '@/components/search/HeroSearch'
+import HeroSlideshow from '@/components/search/HeroSlideshow'
 import styles from './HomePage.module.css'
 
 const FEATURED = [
@@ -30,31 +30,8 @@ const FEATURES = [
 export default function HomePage() {
   return (
     <PageLayout>
-      {/* Hero */}
-      <section className={styles.hero}>
-        <div className={styles.heroInner}>
-          <div className={styles.heroBadge}>✈️ Your Ultimate Travel Companion</div>
-          <h1 className={styles.heroTitle}>
-            Life's too short for<br />
-            <span className={styles.heroAccent}>one destination</span>
-          </h1>
-          <p className={styles.heroSub}>
-            Search any city. Get live weather, photos, attractions, and real traveler reviews — all in one place.
-          </p>
-          <HeroSearch />
-          <div className={styles.heroMeta}>
-            <span>🌍 200+ countries covered</span>
-            <span>·</span>
-            <span>🌤️ Live weather data</span>
-            <span>·</span>
-            <span>⭐ Real reviews</span>
-          </div>
-        </div>
-        <div className={styles.heroDecor}>
-          <div className={styles.decor1} />
-          <div className={styles.decor2} />
-        </div>
-      </section>
+      {/* Hero Slideshow */}
+      <HeroSlideshow />
 
       {/* Featured Destinations */}
       <section className={styles.section}>

@@ -1,0 +1,245 @@
+/* ── Full-screen hero ── */
+.hero {
+  position: relative;
+  height: calc(100vh - var(--navbar-height));
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── Stacked background images ── */
+.backgrounds {
+  position: absolute;
+  inset: 0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.bgActive {
+  opacity: 1;
+  animation: kenBurns 7s ease-out forwards;
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.00); }
+}
+
+/* ── Gradient overlay — dark at bottom for text legibility ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.10) 0%,
+    rgba(0, 0, 0, 0.30) 35%,
+    rgba(0, 0, 0, 0.60) 70%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Main content ── */
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 860px;
+  padding: 0 var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* ── Animated text block ── */
+.textWrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  animation: slideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Location badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 7px 20px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-pink-primary);
+  box-shadow: 0 0 8px var(--color-pink-primary);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ── Main headline ── */
+.headline {
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  margin: 0;
+}
+
+/* ── Explore CTA (per-city) ── */
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.38);
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  font-family: var(--font-family);
+}
+
+.exploreBtn:hover {
+  background: rgba(255, 255, 255, 0.26);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+/* ── Search bar ── */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  padding: 7px 7px 7px 18px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.searchIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  color: var(--color-gray-800);
+  background: transparent;
+  min-width: 0;
+}
+
+.searchInput::placeholder {
+  color: var(--color-gray-400);
+}
+
+.searchBtn {
+  background: var(--gradient-hero);
+  color: #fff;
+  border: none;
+  padding: 11px 26px;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.searchBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Slide dot indicators ── */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.dotActive {
+  width: 26px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .headline { font-size: 1.9rem; }
+  .searchBar { border-radius: var(--radius-lg); padding: 6px 6px 6px 14px; }
+  .searchBtn { padding: 10px 18px; font-size: var(--font-size-sm); }
+  .content { gap: var(--space-6); }
+}
