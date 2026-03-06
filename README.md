@@ -1,75 +1,131 @@
-🌍 Travel Explorer
+# ✈️ Travel Explorer
 
-A modern, elegant, API-powered travel insights app built with HTML, CSS, and JavaScript.
+A full-stack travel platform built with **React**, **Vite**, and **Supabase** — search any city in the world, plan your trip, save favorites, and read real traveler reviews.
 
-Travel Explorer allows users to search any city in the world and instantly view:
+> Built by **Brianna Brockington** · Frontend Developer · Software Engineer
 
-✓ Real-time weather
-✓ City images from Wikipedia
-✓ City overview / description
-✓ Nearby attractions
-✓ Interactive map
-✓ Light/Dark mode
+---
 
-All without a backend + clean JavaScript + public APIs.
+## 🚀 Features
 
-🚀 Features
-🔍 Smart Autocomplete Search
+- 🔍 **Smart City Search** — Autocomplete powered by GeoDB Cities API
+- 🌤️ **Live Weather** — Real-time conditions + 3-day forecast, °F/°C toggle
+- 📸 **City Photos & Overview** — Wikipedia API integration
+- 🏛️ **Nearby Attractions** — OpenStreetMap Overpass API with category badges
+- 🗺️ **Interactive Map** — Leaflet.js with attraction markers
+- ❤️ **Wishlist** — Save destinations to your account (Supabase)
+- 🗓️ **Trip Planner** — Build a day-by-day itinerary for any destination
+- ⭐ **Destination Reviews** — Read and write reviews for any city
+- 🔐 **Auth** — Email/password + Google OAuth via Supabase Auth
+- 👤 **User Profile** — Manage your account and bio
+- 🌙 **Dark Mode** — Persisted across sessions
+- 📱 **Fully Responsive** — Mobile-first design
 
-Search for any city worldwide using the GeoDB Cities API.
+---
 
-🌦 Live Weather
+## 🛠️ Tech Stack
 
-Powered by Open-Meteo, including emoji-based weather icons and °F/°C toggle.
+| Layer      | Tech |
+|------------|------|
+| Frontend   | React 18, Vite, React Router v7 |
+| Backend    | Supabase (Auth + PostgreSQL) |
+| Styling    | CSS Modules + CSS Custom Properties |
+| State      | React Query (@tanstack/react-query) |
+| Map        | Leaflet.js + react-leaflet |
+| APIs       | Open-Meteo, Wikipedia REST, Overpass, Nominatim, GeoDB |
+| Toasts     | react-hot-toast |
 
-🖼 Wikipedia City Photo
+---
 
-Automatically loads the official city thumbnail when available.
+## ⚙️ Setup
 
-📝 City Overview
+### 1. Clone and install
 
-Pulls a readable description from Wikipedia (with intelligent fallback).
+```bash
+git clone https://github.com/briannab1997/BBtravel-explorer.git
+cd BBtravel-explorer
+npm install
+```
 
-⭐ Nearby City Highlights
+### 2. Set up Supabase
 
-Uses OpenStreetMap’s Overpass API to list interesting:
+1. Go to [supabase.com](https://supabase.com) → create a free account → **New Project**
+2. Go to **Project Settings → API** → copy your **Project URL** and **anon public key**
+3. In **Authentication → Settings** → disable **Enable email confirmations** (for development)
+4. In **SQL Editor**, run the schema in `supabase/schema.sql`
 
-Attractions
+### 3. Create `.env.local`
 
-Museums
+```bash
+cp .env.example .env.local
+```
 
-Artwork
+Then fill in your values:
 
-Viewpoints
+```
+VITE_SUPABASE_URL=https://yourproject.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJ...
+```
 
-Galleries
+### 4. Run
 
-(Filtered for accuracy, no apartments/buildings/etc.)
+```bash
+npm run dev
+```
 
-🗺 Interactive Map
+Open [http://localhost:5173](http://localhost:5173)
 
-Leaflet.js map centers on the searched city.
+---
 
-🌙 Light / Dark Mode
+## 🗄️ Database Schema
 
-Remembers mode across sessions using localStorage.
+See [`supabase/schema.sql`](./supabase/schema.sql) for the full schema including:
+- `profiles` — auto-created on signup via trigger
+- `saved_trips` — user wishlist
+- `itineraries` + `itinerary_items` — trip planner
+- `reviews` — destination reviews with RLS policies
 
-🛠 Technologies Used
+---
 
-HTML5 / CSS3 / JavaScript
+## 📂 Project Structure
 
-Leaflet.js (interactive maps)
+```
+src/
+├── context/        AuthContext (global auth state)
+├── lib/            supabaseClient singleton
+├── services/       API service modules
+│   └── supabase/   Supabase CRUD services
+├── hooks/          Custom React hooks
+├── components/
+│   ├── layout/     Navbar, Footer, PageLayout
+│   ├── search/     HeroSearch, AutocompleteDropdown
+│   ├── destination/ WeatherCard, AttractionCard, Map, etc.
+│   ├── trips/      SaveTripButton, TripCard, WishlistGrid
+│   ├── itinerary/  DayColumn, ItineraryBuilder, AddItemModal
+│   ├── reviews/    ReviewForm, ReviewCard, StarRating
+│   └── ui/         Button, Card, Modal, Skeleton, Badge, Avatar
+└── pages/
+    ├── HomePage        /
+    ├── ExplorePage     /explore/:city
+    ├── DashboardPage   /dashboard  [protected]
+    ├── ItineraryPage   /itinerary/:tripId  [protected]
+    ├── ReviewsPage     /reviews/:city
+    ├── SignInPage      /signin
+    ├── SignUpPage      /signup
+    └── ProfilePage     /profile  [protected]
+```
 
-GeoDB Cities API (autocomplete)
+---
 
-OpenStreetMap Nominatim (geocoding)
+## 🌐 Deployment
 
-Open-Meteo API (weather)
+Deploy to **Vercel** (recommended):
 
-Wikipedia REST API (photos + descriptions)
+1. Push to GitHub
+2. Import repo in Vercel
+3. Add environment variables (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) in Vercel project settings
+4. Deploy
 
-Overpass API (attractions)
+---
 
-✨ Created BY:
-Brianna Brockington
-Frontend Developer • Software Engineer • Student
+*Built with passion for travel and clean code.*

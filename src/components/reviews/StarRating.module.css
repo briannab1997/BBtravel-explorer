@@ -1,0 +1,23 @@
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  padding: 1px;
+}
+
+.star:not(:disabled):hover { transform: scale(1.2); }
+.star:disabled { cursor: default; }
+
+.filled { color: #f59e0b; }
+.empty  { color: var(--color-gray-300); }
+
+.sm .star { font-size: 1rem; }
+.md .star { font-size: 1.3rem; }
+.lg .star { font-size: 1.6rem; }

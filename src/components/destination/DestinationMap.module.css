@@ -1,0 +1,10 @@
+.wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.map {
+  height: 340px;
+  width: 100%;
+}

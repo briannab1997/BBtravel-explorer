@@ -1,0 +1,74 @@
+.page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--space-10) var(--space-6);
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-8);
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.name  { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--color-gray-800); }
+.email { font-size: var(--font-size-sm); color: var(--color-gray-500); margin-top: 2px; }
+
+.form { display: flex; flex-direction: column; gap: var(--space-5); }
+.field { display: flex; flex-direction: column; gap: var(--space-1); }
+.label { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-gray-700); }
+
+.input, .textarea {
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 10px var(--space-4);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-800);
+  outline: none;
+  width: 100%;
+  background: var(--color-white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  resize: vertical;
+}
+.input:focus, .textarea:focus {
+  border-color: var(--color-pink-primary);
+  box-shadow: 0 0 0 3px rgba(255,122,165,0.15);
+}
+
+.inputPrefix {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.inputPrefix:focus-within {
+  border-color: var(--color-pink-primary);
+  box-shadow: 0 0 0 3px rgba(255,122,165,0.15);
+}
+
+.prefix {
+  padding: 10px var(--space-3);
+  background: var(--color-gray-50);
+  color: var(--color-gray-500);
+  font-size: var(--font-size-base);
+  border-right: 1.5px solid var(--color-gray-200);
+}
+
+.inputPrefix .input {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.inputPrefix .input:focus { box-shadow: none; }

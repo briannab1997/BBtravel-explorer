@@ -1,0 +1,66 @@
+.card { display: flex; flex-direction: column; }
+
+.photo {
+  height: 160px;
+  background: var(--gradient-hero);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  gap: 2px;
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%);
+}
+
+.cityName {
+  position: relative;
+  color: #fff;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.country {
+  position: relative;
+  color: rgba(255,255,255,0.8);
+  font-size: var(--font-size-xs);
+}
+
+.body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.meta { display: flex; align-items: center; gap: var(--space-2); }
+
+.date {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  margin-left: auto;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+.remove:hover { opacity: 1; }

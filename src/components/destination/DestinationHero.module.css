@@ -1,0 +1,63 @@
+.hero {
+  position: relative;
+  height: 420px;
+  background-image: var(--bg, var(--gradient-hero));
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.6) 100%
+  );
+}
+
+.content {
+  position: absolute;
+  bottom: var(--space-8);
+  left: var(--space-8);
+  right: var(--space-8);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-3);
+}
+
+.city {
+  color: #fff;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  line-height: 1;
+}
+
+.skeleton {
+  height: 420px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 640px) {
+  .hero, .skeleton { height: 280px; border-radius: var(--radius-lg); }
+  .city { font-size: var(--font-size-3xl); }
+  .content { bottom: var(--space-5); left: var(--space-5); right: var(--space-5); }
+}

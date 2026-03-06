@@ -1,0 +1,156 @@
+.page {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-10) var(--space-6);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-5);
+  padding: var(--space-8) var(--space-8);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: var(--gradient-hero);
+  opacity: 0.15;
+}
+
+.headerInfo { position: relative; }
+
+.name {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-800);
+  margin-bottom: var(--space-1);
+}
+
+.email {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-3);
+}
+
+.stats { display: flex; align-items: center; gap: var(--space-2); }
+
+.stat { font-size: var(--font-size-sm); color: var(--color-gray-600); }
+.stat strong { color: var(--color-pink-dark); font-weight: var(--font-weight-bold); }
+.statDivider { color: var(--color-gray-300); }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
+  box-shadow: var(--shadow-sm);
+  width: fit-content;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab.active {
+  background: var(--gradient-hero);
+  color: #fff;
+  box-shadow: var(--shadow-pink-sm);
+}
+
+.count {
+  background: rgba(255,255,255,0.25);
+  border-radius: var(--radius-full);
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+}
+.tab:not(.active) .count {
+  background: var(--color-pink-light);
+  color: var(--color-pink-deep);
+}
+
+/* Content */
+.content {}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-8);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.emptyIcon { font-size: 3.5rem; display: block; margin-bottom: var(--space-4); }
+.empty h3 { font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); color: var(--color-gray-800); margin-bottom: var(--space-2); }
+.empty p  { color: var(--color-gray-500); margin-bottom: var(--space-6); font-size: var(--font-size-sm); }
+
+/* Itineraries */
+.itinList { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.itinCard {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  gap: var(--space-4);
+}
+.itinCard:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.itinInfo { display: flex; flex-direction: column; gap: var(--space-1); }
+.itinTitle { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--color-gray-800); }
+.itinCity  { font-size: var(--font-size-sm); color: var(--color-gray-600); }
+.itinDate  { font-size: var(--font-size-xs); color: var(--color-gray-400); }
+
+.itinActions { display: flex; align-items: center; gap: var(--space-2); flex-shrink: 0; }
+
+.delBtn {
+  background: none; border: none; cursor: pointer;
+  font-size: 1rem; padding: 6px;
+  border-radius: var(--radius-sm);
+  opacity: 0.5; transition: opacity var(--transition-fast);
+}
+.delBtn:hover { opacity: 1; }
+
+@media (max-width: 640px) {
+  .page { padding: var(--space-6) var(--space-4); }
+  .header { flex-direction: column; align-items: flex-start; }
+  .tabs { width: 100%; flex-direction: column; }
+  .grid { grid-template-columns: 1fr; }
+}

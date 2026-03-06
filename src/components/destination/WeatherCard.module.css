@@ -1,0 +1,105 @@
+.card {
+  padding: var(--space-5);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+}
+
+.location {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.icon { font-size: 3rem; }
+
+.temp {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-800);
+  line-height: 1;
+}
+
+.desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-top: var(--space-1);
+}
+
+.meta {
+  display: flex;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.toggle {
+  background: var(--color-pink-light);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-pink-deep);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: background var(--transition-fast);
+  width: 100%;
+  margin-bottom: var(--space-4);
+}
+.toggle:hover { background: #fbc8dc; }
+
+.forecast { border-top: 1px solid var(--color-gray-100); padding-top: var(--space-4); }
+
+.forecastLabel {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-3);
+}
+
+.forecastDays {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.forecastDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-2);
+  background: var(--color-gray-50);
+  border-radius: var(--radius-md);
+}
+
+.forecastDate { font-size: 11px; color: var(--color-gray-500); font-weight: var(--font-weight-medium); }
+.forecastIcon { font-size: 1.2rem; }
+.forecastTemp { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-gray-700); }

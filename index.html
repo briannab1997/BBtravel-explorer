@@ -1,62 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Travel Explorer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="style.css" />
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>Travel Explorer</title>
+    <meta name="description" content="Discover destinations, plan your perfect trip, and save your favorite places with Travel Explorer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
-
   <body>
-    <button id="darkToggle">☾</button>
-
-    <div class="hero">
-      <h1>Travel Explorer</h1>
-      <p>Weather • City Photo • Attractions • Map • Description</p>
-    </div>
-
-    <div class="container">
-      <div class="search-box">
-        <input
-          type="text"
-          id="city"
-          placeholder="Search a city..."
-          autocomplete="off"
-        />
-        <div id="autocomplete-list"></div>
-        <button id="searchBtn">Explore</button>
-      </div>
-
-      <div id="photoSection"></div>
-      <div id="weatherSection"></div>
-      <div id="descriptionSection"></div>
-      <div id="attractionSection"></div>
-      <div id="map"></div>
-    </div>
-
-    <script src="app.js"></script>
-
-    <script>
-      const toggle = document.getElementById("darkToggle");
-      toggle.onclick = () => {
-        document.body.classList.toggle("dark");
-        const dark = document.body.classList.contains("dark");
-        toggle.textContent = dark ? "☀️" : "☾";
-        localStorage.setItem("darkMode", dark);
-      };
-      if (localStorage.getItem("darkMode") === "true") {
-        document.body.classList.add("dark");
-        toggle.textContent = "☀️";
-      }
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
