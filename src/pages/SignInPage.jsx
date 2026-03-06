@@ -32,7 +32,7 @@ export default function SignInPage() {
   return (
     <div className={styles.page}>
       <div className={styles.card}>
-        <Link to="/" className={styles.logo}>✈️ <strong>Travel</strong>Explorer</Link>
+        <Link to="/" className={styles.logo}>✈️ Jet<strong>set</strong></Link>
         <h1 className={styles.heading}>Welcome back</h1>
         <p className={styles.sub}>Sign in to your account</p>
 

@@ -1,4 +1,4 @@
-# ✈️ Travel Explorer
+# ✈️ Jetset
 
 A full-stack travel platform built with **React**, **Vite**, and **Supabase** — search any city in the world, plan your trip, save favorites, and read real traveler reviews.
 

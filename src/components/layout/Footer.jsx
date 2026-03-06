@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <span className={styles.logo}>✈️ <strong>Travel</strong>Explorer</span>
+          <span className={styles.logo}>✈️ Jet<strong>set</strong></span>
           <p className={styles.tagline}>Discover the world, one city at a time.</p>
         </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <span>© {new Date().getFullYear()} TravelExplorer · Built by Brianna Brockington</span>
+        <span>© {new Date().getFullYear()} Jetset · Built by Brianna Brockington</span>
       </div>
     </footer>
   )

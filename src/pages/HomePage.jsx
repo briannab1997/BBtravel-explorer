@@ -35,8 +35,8 @@ export default function HomePage() {
         <div className={styles.heroInner}>
           <div className={styles.heroBadge}>✈️ Your Ultimate Travel Companion</div>
           <h1 className={styles.heroTitle}>
-            Explore the World,<br />
-            <span className={styles.heroAccent}>Plan Your Adventure</span>
+            Life's too short for<br />
+            <span className={styles.heroAccent}>one destination</span>
           </h1>
           <p className={styles.heroSub}>
             Search any city. Get live weather, photos, attractions, and real traveler reviews — all in one place.

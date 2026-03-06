@@ -53,7 +53,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className={styles.logo}>
           <span className={styles.logoIcon}>✈️</span>
-          <span className={styles.logoText}>Travel<strong>Explorer</strong></span>
+          <span className={styles.logoText}>Jet<strong>set</strong></span>
         </Link>
 
         {/* Nav Links */}
