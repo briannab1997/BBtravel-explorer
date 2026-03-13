@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabaseClient'
+import { getSession, setSession } from '@/lib/mockDb'
 
 const AuthContext = createContext({})
 
@@ -8,24 +8,20 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Grab the initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
+    // Restore session from sessionStorage on mount
+    const session = getSession()
+    setUser(session ?? null)
+    setLoading(false)
 
-    // Subscribe to auth state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setUser(session?.user ?? null)
-        setLoading(false)
-      }
-    )
-
-    return () => subscription.unsubscribe()
+    // Listen for auth changes dispatched by mockDb helpers
+    function handleAuthChange(e) {
+      setUser(e.detail ?? null)
+    }
+    window.addEventListener('mockAuthChange', handleAuthChange)
+    return () => window.removeEventListener('mockAuthChange', handleAuthChange)
   }, [])
 
-  const signOut = () => supabase.auth.signOut()
+  const signOut = () => setSession(null)
 
   return (
     <AuthContext.Provider value={{ user, loading, signOut }}>
