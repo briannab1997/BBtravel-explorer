@@ -6,6 +6,10 @@ The app currently uses a lightweight localStorage-backed data layer for auth-sty
 
 Live demo: https://briannab1997.github.io/BBtravel-explorer/
 
+## Screenshot
+
+![Jetset travel explorer](assets/jetset.png)
+
 ## What It Does
 
 - Search for cities with autocomplete
@@ -21,6 +25,16 @@ Live demo: https://briannab1997.github.io/BBtravel-explorer/
 ## Why I Built It
 
 Jetset gave me room to practice API-heavy front-end work: multiple data sources, loading states, protected routes, reusable components, and user flows that cross several screens. It is also a good example of turning an open-ended idea into a structured product experience.
+
+## Skills Demonstrated
+
+- React application structure
+- Client-side routing
+- API integration and async loading states
+- Map-based UI with Leaflet
+- Search/autocomplete workflows
+- Mock authentication and local persistence
+- Responsive product design
 
 ## Tech Stack
 
